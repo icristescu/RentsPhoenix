@@ -1,0 +1,11 @@
+defmodule RentingWeb.UserControllerTest do
+  use RentingWeb.ConnCase
+
+  alias Renting.Accounts
+
+  test "authenticate_user halts when no current_user exists", %{conn: conn} do
+    conn = Auth.authenticate(conn, [])
+    assert conn.halted
+  end
+
+end

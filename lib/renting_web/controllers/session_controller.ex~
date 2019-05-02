@@ -1,0 +1,6 @@
+defmodule RentingWeb.SessionController do
+  use RentingWeb, :controller
+  def new(conn, _) do
+    render(conn, "new.html")
+  end
+end

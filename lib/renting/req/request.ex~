@@ -1,0 +1,22 @@
+defmodule Renting.Req.Request do
+  use Ecto.Schema
+  import Ecto.Changeset
+
+  schema "requests" do
+    field :cost, :integer
+    field :nbdays, :integer
+    field :period, :string
+    field :status, :string
+    field :user_id, :id
+    field :appart_id, :id
+
+    timestamps()
+  end
+
+  @doc false
+  def changeset(request, attrs) do
+    request
+    |> cast(attrs, [:nbdays, :cost, :status, :period])
+    |> validate_required([:nbdays, :cost, :status, :period])
+  end
+end
